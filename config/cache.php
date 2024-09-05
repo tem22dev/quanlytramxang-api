@@ -105,4 +105,15 @@ return [
 
     'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache_'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Cache Css, JS browser
+    |--------------------------------------------------------------------------
+    |
+    | When change version, client browser will refresh new css, js version when reload page
+    |
+    */
+
+    'css_version' => env('CSS_VERSION', time()),
+    'js_version' => env('JS_VERSION', time()),
 ];
