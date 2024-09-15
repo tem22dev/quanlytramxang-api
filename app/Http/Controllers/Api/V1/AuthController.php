@@ -25,7 +25,7 @@ class AuthController extends Controller
             return $this->responseDataSuccess($result['data']);
         }
 
-        return $this->responseMessageUnAuthorization($result['message']);
+        return $this->responseMessageBadrequest($result['message']);
     }
 
     public function logout(Request $request)
