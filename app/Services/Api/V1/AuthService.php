@@ -8,6 +8,25 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthService
 {
+    public function getUserByToken()
+    {
+        $user = auth('sanctum')->user();
+
+        if ($user) {
+            return [
+                'status' => true,
+                'data' => [
+                    'user' => $user
+                ],
+            ];
+        }
+
+        return [
+            'status' => false,
+            'message' => 'Không thể lấy được thông tin user.',
+        ];
+    }
+
     public function login($request)
     {
         $user = User::where('email', $request['user_identifier'])
@@ -19,10 +38,7 @@ class AuthService
 
         if ($user && in_array($user->user_type, $allowUser)) {
             if (Hash::check($request['password'], $user['password'])) {
-                $token = $user->createToken(
-                    name: env('AUTH_TOKEN'),
-                    expiresAt: $request['remember_me'] ? now()->addDays(7) : now()->addHour()
-                )->plainTextToken;
+                $token = $user->createToken(env('AUTH_TOKEN'))->plainTextToken;
                 return [
                     'status' => true,
                     'data' => [

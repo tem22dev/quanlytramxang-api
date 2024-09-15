@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\LoginRequest;
 use App\Services\Api\V1\AuthService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,6 +14,17 @@ class AuthController extends Controller
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
+    }
+
+    public function getUserByToken()
+    {
+        $result = $this->authService->getUserByToken();
+
+        if ($result && $result['status'] === true) {
+            return $this->responseDataSuccess($result['data']);
+        }
+
+        return $this->responseMessageBadrequest($result['message']);
     }
 
     public function login(LoginRequest $request)
@@ -33,7 +43,7 @@ class AuthController extends Controller
         $user = $request->user();
         
         if ($user) {
-            $request->user()->currentAccessToken()->delete();
+            $user->currentAccessToken()->delete();
 
             return $this->responseMessageSuccess('Logout successful');
         }
