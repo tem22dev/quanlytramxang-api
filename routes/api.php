@@ -9,6 +9,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
     Route::middleware(['auth:sanctum'])->group(function () {
+        Route::apiResource('/user', UserController::class);
         Route::get('/user/counter', [UserController::class, 'counterAccount']);
 
         Route::get('/fetch-user', [AuthController::class, 'getUserByToken']);
