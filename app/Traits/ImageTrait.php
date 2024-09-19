@@ -8,7 +8,7 @@ use Intervention\Image\Facades\Image;
 
 trait ImageTrait
 {
-    public function storeImage($imageFile, $folder, $isThumb = false)
+    public static function storeImage($imageFile, $folder, $isThumb = false)
     {
         $hash = date('YmdHis') . Str::random(10);
         $imageFileName = 'image_' . $hash . '.jpg';
@@ -37,7 +37,7 @@ trait ImageTrait
         ];
     }
 
-    public function deleteImage($imagePath)
+    public static function deleteImage($imagePath)
     {
         return Storage::disk('public_path')->delete($imagePath);
     }

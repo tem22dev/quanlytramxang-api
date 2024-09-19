@@ -145,13 +145,22 @@ return [
         'email' => 'địa chỉ email',
         'tel' =>'số điện thoại',
         'user_identifier' => 'mã đăng nhập',
+        'user_id' => 'mã người dùng',
         'password' => 'mật khẩu',
         'avatar' => 'ảnh đại diện',
         'title' => 'tiêu đề',
         'short_description' => 'mô tả ngắn',
         'price' => 'giá',
-        'category_id' => 'id phân loại',
+        'category_id' => 'mã phân loại',
         'status' => 'trạng thái',
+        'image' => 'hình ảnh',
+        'name_station' => 'tên trạm',
+        'lng' => 'kinh độ',
+        'lat' => 'vĩ độ',
+        'address' => 'địa chỉ',
+        'full_name' => 'họ tên',
+        'email' => 'email',
+        'user_type' => 'loại tài khoản'
     ],
 
 ];
