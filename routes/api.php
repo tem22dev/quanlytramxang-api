@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\FuelController;
 use App\Http\Controllers\Api\V1\GasStationController;
 use App\Http\Controllers\Api\V1\StaffController;
 use App\Http\Controllers\Api\V1\UserController;
@@ -18,6 +19,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('/staff/counter', [StaffController::class, 'counterStaff']);
         Route::apiResource('/staff', StaffController::class);
+
+        Route::get('/fuel/counter', [FuelController::class, 'counterFuel']);
+        Route::apiResource('/fuel', FuelController::class);
 
         Route::get('/fetch-user', [AuthController::class, 'getUserByToken']);
         Route::post('/logout', [AuthController::class, 'logout']);
