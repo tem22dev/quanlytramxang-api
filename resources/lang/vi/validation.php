@@ -160,7 +160,10 @@ return [
         'address' => 'địa chỉ',
         'full_name' => 'họ tên',
         'email' => 'email',
-        'user_type' => 'loại tài khoản'
+        'user_type' => 'loại tài khoản',
+        'gas_station_id' => 'mã trạm',
+        'birth_date' => 'ngày sinh',
+        'position' => 'vị trí'
     ],
 
 ];
