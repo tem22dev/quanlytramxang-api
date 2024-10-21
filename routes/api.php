@@ -16,6 +16,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/user', UserController::class);
 
         Route::get('/gas-station/counter', [GasStationController::class, 'counterGasStation']);
+        Route::get('gas-station/search', [GasStationController::class, 'search']);
         Route::apiResource('/gas-station', GasStationController::class);
 
         Route::get('/staff/counter', [StaffController::class, 'counterStaff']);

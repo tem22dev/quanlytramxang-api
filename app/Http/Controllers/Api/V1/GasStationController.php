@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\CreateGasStationRequest;
 use App\Http\Requests\Api\V1\UpdateGasStationRequest;
 use App\Services\Api\V1\GasStationService;
+use Illuminate\Http\Request;
 
 class GasStationController extends Controller
 {
@@ -94,5 +95,20 @@ class GasStationController extends Controller
         $result = $this->gasStationService->countData();
 
         return $this->responseDataSuccess($result);
+    }
+
+    /**
+     * Search gas stations by name or ID.
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('query');
+        $result = $this->gasStationService->search($query);
+
+        if ($result) {
+            return $this->responseDataSuccess($result);
+        }
+
+        return $this->responseMessageNotfound();
     }
 }

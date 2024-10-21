@@ -80,4 +80,17 @@ class GasStationService
             'countGasStation' => GasStation::count(),
         ];
     }
+
+    public function search($query)
+    {
+        $gasStations = GasStation::where('id', $query)
+            ->orWhere('name_station', 'like', '%' . $query . '%')
+            ->get();
+
+        if ($gasStations->isEmpty()) {
+            return null;
+        }
+
+        return GasStationResource::collection($gasStations);
+    }
 }
