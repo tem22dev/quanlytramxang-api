@@ -22,4 +22,14 @@ class GasStation extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function staffs()
+    {
+        return $this->hasMany(Staff::class, 'gas_station_id', 'id');
+    }
 }

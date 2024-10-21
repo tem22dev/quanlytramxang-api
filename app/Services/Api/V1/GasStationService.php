@@ -9,7 +9,7 @@ class GasStationService
 {
     public function getList()
     {
-        $gasStations = GasStation::all();
+        $gasStations = GasStation::with(['user'])->get();
 
         return GasStationResource::collection($gasStations);
     }
@@ -51,7 +51,9 @@ class GasStationService
         $gasStation->name_station = $request->name_station;
         $gasStation->lng = $request->lng;
         $gasStation->lat = $request->lat;
-        $gasStation->image = $request->image;
+        if ($request->image) {
+            $gasStation->image = $request->image;
+        }
         $gasStation->address = $request->address;
 
         $gasStation->save();

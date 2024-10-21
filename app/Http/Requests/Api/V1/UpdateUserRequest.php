@@ -25,7 +25,7 @@ class UpdateUserRequest extends BaseRequest
                 'email', 
                 Rule::unique('users', 'email')->ignore($userId)
             ],
-            'password' => ['required', 'min:6'],
+            'password' => ['nullable', 'min:6'],
         ];
     }
 }

@@ -25,4 +25,9 @@ class Staff extends Model
     protected $casts = [
         'birth_date' => 'date',
     ];
+
+    public function gasStation()
+    {
+        return $this->belongsTo(GasStation::class, 'gas_station_id');
+    }
 }

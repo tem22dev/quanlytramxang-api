@@ -17,6 +17,7 @@ class GasStationResource extends JsonResource
         return [
             'id' => $this->id,
             'user_id' => $this->user_id,
+            'user' => $this->user,
             'name_station' => $this->name_station,
             'lng' => $this->lng,
             'lat' => $this->lat,

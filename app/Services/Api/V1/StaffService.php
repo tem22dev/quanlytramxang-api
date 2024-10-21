@@ -9,7 +9,7 @@ class StaffService
 {
     public function getList()
     {
-        $staffs = Staff::all();
+        $staffs = Staff::with(['gasStation'])->get();
 
         return StaffResource::collection($staffs);
     }
