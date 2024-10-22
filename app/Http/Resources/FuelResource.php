@@ -19,6 +19,7 @@ class FuelResource extends JsonResource
             'name' => $this->name,
             'type_fuel' => $this->type_fuel,
             'price' => number_format($this->price, 0, ',', '.') . ' đ',
+            'price_number' => $this->price,
             'description' => $this->description,
             'created_at' => $this->created_at->format('H:i | d-m-Y'),
         ];
