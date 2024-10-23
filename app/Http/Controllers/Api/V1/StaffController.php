@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\CreateStaffRequest;
 use App\Http\Requests\Api\V1\UpdateStaffRequest;
 use App\Services\Api\V1\StaffService;
+use Illuminate\Http\Request;
+use Ramsey\Uuid\Type\Integer;
 
 class StaffController extends Controller
 {
@@ -94,5 +96,19 @@ class StaffController extends Controller
         $result = $this->staffService->countData();
 
         return $this->responseDataSuccess($result);
+    }
+
+    /**
+     * Counter data.
+     */
+    public function getListByGasStationId($id)
+    {
+        $result = $this->staffService->getListByGasStationId($id);
+
+        if ($result) {
+            return $this->responseDataSuccess($result);
+        }
+
+        return $this->responseMessageBadrequest();
     }
 }

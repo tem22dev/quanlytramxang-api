@@ -21,6 +21,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/gas-station', GasStationController::class);
 
         Route::get('/staff/counter', [StaffController::class, 'counterStaff']);
+        Route::get('/staff/gas-station/{id}', [StaffController::class, 'getListByGasStationId']);
         Route::apiResource('/staff', StaffController::class);
 
         Route::get('/fuel/counter', [FuelController::class, 'counterFuel']);

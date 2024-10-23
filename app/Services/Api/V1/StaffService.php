@@ -14,6 +14,13 @@ class StaffService
         return StaffResource::collection($staffs);
     }
 
+    public function getListByGasStationId($id)
+    {
+        $staffs = Staff::where('gas_station_id', $id)->get();
+
+        return StaffResource::collection($staffs);
+    }
+
     public function store($request)
     {
         $staff = Staff::create([
