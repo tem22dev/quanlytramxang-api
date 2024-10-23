@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\FuelController;
 use App\Http\Controllers\Api\V1\GasStationController;
+use App\Http\Controllers\Api\V1\InvoiceController;
 use App\Http\Controllers\Api\V1\StaffController;
 use App\Http\Controllers\Api\V1\UploadFileController;
 use App\Http\Controllers\Api\V1\UserController;
@@ -24,6 +25,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('/fuel/counter', [FuelController::class, 'counterFuel']);
         Route::apiResource('/fuel', FuelController::class);
+
+        Route::get('/invoice/counter', [InvoiceController::class, 'counterInvoice']);
+        Route::apiResource('/invoice', InvoiceController::class);
 
         Route::post('/upload-file', [UploadFileController::class, 'upload']);
         Route::get('/fetch-user', [AuthController::class, 'getUserByToken']);
