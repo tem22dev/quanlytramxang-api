@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\AuthController;
+use App\Http\Controllers\Api\V1\EntryFormController;
 use App\Http\Controllers\Api\V1\FuelController;
 use App\Http\Controllers\Api\V1\GasStationController;
 use App\Http\Controllers\Api\V1\InvoiceController;
@@ -29,6 +30,9 @@ Route::prefix('v1')->group(function () {
 
         Route::get('/invoice/counter', [InvoiceController::class, 'counterInvoice']);
         Route::apiResource('/invoice', InvoiceController::class);
+        
+        Route::get('/entry-form/counter', [EntryFormController::class, 'counterEntryForm']);
+        Route::apiResource('/entry-form', EntryFormController::class);
 
         Route::post('/upload-file', [UploadFileController::class, 'upload']);
         Route::get('/fetch-user', [AuthController::class, 'getUserByToken']);
