@@ -75,6 +75,20 @@ class InvoiceController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function getListInvoiceByIdGasStation($id)
+    {
+        $result = $this->invoiceService->getListInvoiceByIdGasStation($id);
+
+        if ($result) {
+            return $this->responseDataSuccess($result);
+        }
+
+        return $this->responseMessageBadrequest();
+    }
+
+    /**
      * Counter data.
      */
     public function counterInvoice()

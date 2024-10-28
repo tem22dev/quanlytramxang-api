@@ -56,6 +56,17 @@ class InvoiceService
         return new InvoiceResource($invoice);
     }
 
+    public function getListInvoiceByIdGasStation($id)
+    {
+        $entryForms = Invoice::where('gas_station_id', $id)->get();
+
+        if (!$entryForms) {
+            return $entryForms;
+        }
+
+        return InvoiceResource::collection($entryForms);
+    }
+
     public function countData()
     {
         return [

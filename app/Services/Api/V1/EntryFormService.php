@@ -55,6 +55,17 @@ class EntryFormService
         return new EntryFormResource($entryForm);
     }
 
+    public function getListEntryFormByIdGasStation($id)
+    {
+        $entryForms = EntryForm::where('gas_station_id', $id)->get();
+
+        if (!$entryForms) {
+            return $entryForms;
+        }
+
+        return EntryFormResource::collection($entryForms);
+    }
+
     public function countData()
     {
         return [

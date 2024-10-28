@@ -31,6 +31,7 @@ class InvoiceResource extends JsonResource
                 ];
             }),
             'created_at' => $this->created_at->format('H:i | d-m-Y'),
+            'created_at_date' => $this->created_at,
         ];
     }
 }

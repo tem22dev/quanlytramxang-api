@@ -29,9 +29,11 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('/fuel', FuelController::class);
 
         Route::get('/invoice/counter', [InvoiceController::class, 'counterInvoice']);
+        Route::get('/invoice/gas-id/{id}', [InvoiceController::class, 'getListInvoiceByIdGasStation']);
         Route::apiResource('/invoice', InvoiceController::class);
         
         Route::get('/entry-form/counter', [EntryFormController::class, 'counterEntryForm']);
+        Route::get('/entry-form/gas-id/{id}', [EntryFormController::class, 'getListEntryFormByIdGasStation']);
         Route::apiResource('/entry-form', EntryFormController::class);
 
         Route::post('/upload-file', [UploadFileController::class, 'upload']);

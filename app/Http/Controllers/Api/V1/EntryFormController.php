@@ -75,6 +75,20 @@ class EntryFormController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function getListEntryFormByIdGasStation($id)
+    {
+        $result = $this->entryFormService->getListEntryFormByIdGasStation($id);
+
+        if ($result) {
+            return $this->responseDataSuccess($result);
+        }
+
+        return $this->responseMessageBadrequest();
+    }
+
+    /**
      * Counter data.
      */
     public function counterEntryForm()
